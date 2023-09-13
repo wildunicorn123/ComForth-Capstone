@@ -17,23 +17,28 @@ export default createStore({
       state.product = product;
       console.log(product)
     },
-    
   },
   actions: {
-    async fetchProducts(context){
-      try {
-        let products = await (await fetch('https://comforthdatabase.onrender.com/Products')).json();
-        if (products) {
-          context.commit("setProducts", products)
-        } else{
-          alert("error")
+    async fetchProducts(context) {
+      try{
+        const {data} = await axios.get(`${theUrl}Products`)
+        if (data.results) {
+          context.commit("setProducts", data.results)
+        }else{
+          sweetAlert({
+            title:"Error",
+            text:data.msg,
+            icon:"error",
+            timer:2000
+          })
         }
+      }catch(e){
+        context.commit("setMessage", "An error occured")
+        console.log(e);
       }
-      catch (error){
-        console.error (error);
-      }
-    }
+    },
   },
+
   modules: {
   }
 })

@@ -1,48 +1,42 @@
 <template>
-<div>
-    <h2 class="text-white">What we sell:</h2>
-  <div class="container" v-if="products">
+   <div class="container">
     <div class="row">
-        <div
-      class="col-3 d-flex flex-column align-items-center gap-4 p-4"
-      v-for="product of products"
-      :key="product.prodName"
-    >
-      <img
-        :src="product.prodURL"
-        :alt="product.Category"
-      />
-      <div class="card-body">
-        <h5>{{ product.prodName }}</h5>
-        <p>R{{ product.amount }}</p>
-        <button @click="">See Details</button>
-      </div>
+ <div class="col-3 d-flex flex-column align-items-center gap-4 p-4" v-if="products">
+            <div class="card mb-5" v-for="product of products" :key="product.ProductID">
+              <img :src="product.ProductImage">
+                <div class="card-body">
+                    <h5 class="mt-2">{{product.ProductName}}</h5>
+                    <p>R {{product.Price}}</p>
+                    <button>Add to🛒</button>
+                    <button>See more</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-<div class="text-white loading" v-else>
-        Please,give us a moment...
-        <Spinner/>
-    </div>
-    </div>
 </template>
 <script>
-// import Spinner from '../components/spinner.vue'
-// import singleProd from './singleprodView.vue'
-
-export default {
-  computed: {
-    products() {
-      return this.$store.state.products;
+    export default{
+    data(){
+        return{
+            outputData:[],
+            disDt:[]
+        }
     },
-  },
-  mounted() {
-    this.$store.dispatch("fetchProducts");
-  },
-  methods:{
-},
-components:{Spinner, singleProd}
-}
+    computed: {
+        products() {
+            return this.$store.state.products;
+        },
+    },
+    mounted() {
+        this.$store.dispatch("fetchProducts")
+    },
+    methods:{
+        newdataDisplay(data){
+            this.outputData=data;
+        },
+    },
+    }
 </script>
 <style scoped>
 img{
@@ -50,7 +44,7 @@ img{
     height:130px;
 }
  .col {
-    box-shadow: 0 4px 8px 0 #00bf63 !important;
+    box-shadow: 0 4px 8px 0 rgb(167, 72, 72) !important;
     transition: 0.3s !important;
     width: 100%!important;
     
@@ -67,7 +61,9 @@ img{
      font-family: 'Doulos SIL Compact', sans-serif!important;
     width:200px!important;
     height:130px!important;
-    color:white!important;
+    color:black!important;
 } 
-
+.container{
+  
+}
 </style>
