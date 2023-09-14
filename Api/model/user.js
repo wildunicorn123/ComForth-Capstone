@@ -35,14 +35,63 @@ class Users{
                 })
             })
     }
-    // login(req, res) {
-    // }
+login(req, res) {
+        const {UserEmail, UserPassword} = req.body
+        const query = `
+        SELECT UserID, UserName,
+        UserLastName,UserRole, UserAge, UserGender,
+        UserEmail,UserProfiletxt, UserPassword
+        FROM Users;
+        WHERE UserEmail = ${UserEmail};
+        `
+        db.query(query, async (err, result)=>{
+            if(err) throw err
+            if(!result?.length){
+                res.json({
+                    status: res.statusCode,
+                    msg: "You provided a wrong email."
+                })
+            }else {
+                await compare(UserPassword,
+                    result[0].UserPassword,
+                    (cErr, cResult)=>{
+                        if(cErr) throw cErr
+                        // Create a token
+                        const token =
+                        createToken({
+                            UserEmail,
+                            UserPassword
+                        })
+                        
+                        res.cookie("LegitUser",
+                        token, {
+                            maxAge: 3600000,
+                            httpOnly: true
+                        })
+                        if(cResult) {
+                            res.json({
+                                msg: "Logged in",
+                                token,
+                                result: result[0]
+                            })
+                        }else {
+                            res.json({
+                                status: res.statusCode,
+                                msg:
+                                "Invalid password or you have not registered"
+                            })
+                        }
+                    })
+            }
+        })
+    }
+
     async register(req, res) {
         const data = req.body
-        data.userPass = await hash(data.userPass,10)
+        data.UserPassword = await hash(data.UserPassword,10)
         const user = {
-            emailAdd: data.emailAdd,
-            userPass: data.userPass
+            emailAdd: data.UserEmail,
+            userPass: data.UserPassword
         }
         const query = `
         INSERT INTO Users

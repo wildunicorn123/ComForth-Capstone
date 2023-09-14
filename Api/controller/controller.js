@@ -18,17 +18,23 @@ routes.post('/register', async (req, res)=> {
 
             const hashedPassword = await bcrypt.hash(password,10);
 
-            const user = newUser({
+            const User = newUser({
                 username,
                 password:hashedPassword,
             });
 
-            await user.save();
+            await User.save();
 
         res.status(201).json({message: "user is registered"});
         } catch (error){
             res.status(500).json({error:"an error"});
         }
+    })
+
+
+routes.post('/login',
+    bodyParser.json(), (req, res)=>{
+        users.login(req, res)
     })
 
 routes.patch('/User/:id', bodyParser.json(),
