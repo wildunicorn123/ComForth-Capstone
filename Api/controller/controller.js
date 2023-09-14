@@ -12,9 +12,23 @@ routes.get('/Users', (req, res)=>{
 routes.get('/User/:id', (req, res)=>{
     users.fetchUser(req, res)
 })
-routes.post('/register', bodyParser.json(),
-    (req, res)=> {
-        users.register(req, res)
+routes.post('/register', async (req, res)=> {
+        try{
+            const { username, password } = req.body;
+
+            const hashedPassword = await bcrypt.hash(password,10);
+
+            const user = newUser({
+                username,
+                password:hashedPassword,
+            });
+
+            await user.save();
+
+        res.status(201).json({message: "user is registered"});
+        } catch (error){
+            res.status(500).json({error:"an error"});
+        }
     })
 
 routes.patch('/User/:id', bodyParser.json(),
