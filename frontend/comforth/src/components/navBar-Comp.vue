@@ -28,7 +28,16 @@
             <router-link class="nav-link" to="/admin">Admin</router-link>
         </li>
         <li class="nav-item">
+            <router-link class="nav-link" to="/cart">🛒</router-link>
+        </li>
+        <li class="nav-item">
+            <router-link class="nav-link" to="/register">Register</router-link>
+        </li>
+        <li class="nav-item">
             <router-link class="nav-link" to="/login">Log-in</router-link>
+        </li>
+        <li class="nav-item">
+            <router-link class="nav-link" to="/logout">Log-Out</router-link>
         </li>
     </ul>
         </div>

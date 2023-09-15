@@ -1,14 +1,17 @@
 <template>
 <navBarComp/>
   <router-view/>
+  <FooterComp/>
 </template>
 <script>
 import navBarComp from "./components/navBar-Comp.vue"
+import FooterComp from "./components/footerComp.vue"
 export default {
-  components: { navBarComp },
+  components: { navBarComp, FooterComp },
 };
 </script>
 <style>
+@import url('https://fonts.cdnfonts.com/css/berkelium-type');
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,10 +31,11 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: rgba(253, 96, 57, 0.897);
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+nav a.router-link-exact-active :hover{
+  font-family: 'Berkelium Type', sans-serif;
+  color: #d1174c;
 }
 </style>
