@@ -42,7 +42,7 @@ login(req, res) {
         UserLastName,UserRole, UserAge, UserGender,
         UserEmail,UserProfiletxt, UserPassword
         FROM Users;
-        WHERE UserEmail = ${UserEmail};
+        WHERE UserEmail = UserEmail;
         `
         db.query(query, async (err, result)=>{
             if(err) throw err
