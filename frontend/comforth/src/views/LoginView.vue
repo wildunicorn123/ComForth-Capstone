@@ -65,4 +65,19 @@ mounted() {
 .container {
     padding-top: 8rem;
 }
+input {
+    width: 100%;
+    padding: 10px 0 10px 10px;
+    margin: 0;
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #f8bcbc, -2px -2px -2px ;
+}
+.buttons > button{
+background-color:transparent!important;
+}
+label{
+    font-weight:30px;
+}
+
 </style>

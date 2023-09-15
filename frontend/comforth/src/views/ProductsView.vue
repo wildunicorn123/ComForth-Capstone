@@ -11,7 +11,7 @@
                     <h7 class="mt-2">{{product.ProductName}}</h7>
                     <p>R {{product.Price}}</p>
                     <button class="ton">Add to🛒</button>
-                    <button class="ton">See more</button>
+                    <router-link class="btn btn-primary" :to="{ name:'product', params: {id: product.ProductID}}">View More</router-link>
                 </div>
             </div>
         </div>
