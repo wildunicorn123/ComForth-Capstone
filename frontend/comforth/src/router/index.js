@@ -9,11 +9,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
-    beforeEnter: () => {
-      if(!cookies.get("client")){
-        router.push({path:"/login"})
-      }
-    }
+    // beforeEnter: () => {
+    //   if(!cookies.get("client")){
+    //     router.push({path:"/login"})
+    //   }
+    // }
   },
   {
     path: '/about',

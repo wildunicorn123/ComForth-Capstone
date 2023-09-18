@@ -1,7 +1,7 @@
 <template>
-  <div class="hero" >
+<div class="hero" >
             <div class="text1">
-                <p>ComForth, Live well and sleep well too. </p>
+                <p>ComForth, Live well and sleep well too.</p>
                 <button class="text-black"><router-link to="./ProductsView.vue" class="text-black"><em>SEE ITEMS</em></router-link></button>
             </div>
         </div>
@@ -78,13 +78,40 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-                    </div>
+                    </div></div>
+                    <div class="container " style="position:relative;">
+          <section class="row gap-5">
+            <div id="product1" class="col d-flex flex-column align-items-center gap-3 p-4">
+                <div class="card" style="width: 18rem">
+      <img src="https://i.postimg.cc/NGNGS15G/adjustable-beds.jpg
+" class="card-img-top" alt="beds" style="height:18rem"/>
+      <div class="card-body">
+        <a href=""><h3 class="card-title ">Beds</h3></a> 
+      </div>
+      </div>
             </div>
+              <div id="product1" class="col d-flex flex-column align-items-center gap-3 p-4">
+                <div class="card" style="width: 18rem">
+      <img src="https://i.postimg.cc/J7qncfbF/Grey-sofa-and-pine.jpg
+" class="card-img-top" alt="sofa" />
+      <div class="card-body">
+       <a href=""><h3 class="card-title ">Sofas</h3></a> 
+      </div>
+      </div>
+            </div>
+              <div id="product1" class="col d-flex flex-column align-items-center gap-3 p-4">
+                <div class="card" style="width: 18rem">
+      <img src="
+https://i.postimg.cc/T1CgzhBL/homey-dining-table.webp
+" class="card-img-top" alt="dining" />
+      <div class="card-body">
+        <a href=""><h3 class="card-title">Dining sets</h3></a> 
+      </div>
+      </div>
+            </div>
+          </section>
+          </div>
 </template>
-
-<script>
-
-</script>
 <style scoped>
 @import url('https://fonts.cdnfonts.com/css/berkelium-type');
 .hero {

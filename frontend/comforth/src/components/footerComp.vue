@@ -1,5 +1,5 @@
 <template>
-<footer class="text-center text-white" style="background-color: #f1f1f1;">
+<footer class="text-center text-white fixed bottom" style="background-color: #f1f1f1;">
 <!-- Grid container -->
     <!-- Section: Social media -->
 
@@ -23,6 +23,6 @@
 <style>
 footer{
     text-decoration:none!important;
-    margin-top:80px!important;
+    margin-top:400px!important;
 }
 </style>

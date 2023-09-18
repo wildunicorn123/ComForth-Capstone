@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card">
             <h1>register</h1>
-            <form @submit.prevent="registerUser">
+            <form @submit.prevent="register">
                 <div>
                     <label for="firstName">First Name</label>
                     <input type="text" v-model="user.UserName">

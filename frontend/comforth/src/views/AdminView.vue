@@ -1,6 +1,6 @@
 <template>
 <div class="something">
-    <h1>Admin Page</h1>
+    <h>Admin Page</h>
 </div>
 <table class="table" v-if="product">
         <tr>
@@ -15,6 +15,7 @@
             <td>{{product.ProductID}}</td>
             <th><button>Add</button><button>Del</button></th>
         </tr>
+</table>
 </template>
 <script>
 export default{

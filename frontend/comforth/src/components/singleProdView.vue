@@ -1,19 +1,11 @@
 <template>
-      <div v-if="product" class="product-details" :key="product.ProductID" id="single">
-        <div class="jack">
-        <div class="whole hole">
-          <div class="cont-fluid animate__animated animate__zoomInLeft">
-            <div class="row img1">
-              <div class="colu1">
+      <div v-if="product" class="product" :key="product.ProductID">
                 <div class="view-image">
                   <div class="smaller">
                     <img class="small" :src="product.ProductImage" />
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="cont-fluid1 animate__animated animate__zoomInRight">
             <div class="row desc1">
               <div class="col card">
                 <div class="card-body">
@@ -30,17 +22,12 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </template>
   <script>
-  export default {
+  export default{
     computed: {
       product() {
         return this.$store.state.product;
-        
       },
       id() {
         return this.$route.params.id
@@ -48,9 +35,7 @@
     },
     mounted() {
       console.log(this.id);
-      this.$store.dispatch("getProduct", this.$route.params.id);
+      this.$store.dispatch("fetchProduct", this.$route.params.id);
     },
-    
-  };
-  
+    };
   </script>
